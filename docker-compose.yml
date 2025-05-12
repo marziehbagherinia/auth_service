@@ -1,0 +1,15 @@
+services:
+  auth_app:
+    build:
+      context: .       # The build context is the project root
+      dockerfile: .pro/Dockerfile
+    container_name: auth_app
+    ports:
+      - "3000:3000"
+    networks:
+      - local_network
+    restart: unless-stopped
+
+networks:
+  local_network:
+    external: true
